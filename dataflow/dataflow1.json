@@ -1,0 +1,78 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          status as string,",
+				"          createdDateTime as string,",
+				"          lastUpdatedDateTime as string,",
+				"          analyzeResult as (apiVersion as string, modelId as string, stringIndexType as string, content as string, pages as (pageNumber as integer, angle as integer, width as double, height as double, unit as string, words as (content as string, boundingBox as double[], confidence as integer, span as (offset as integer, length as integer))[], selectionMarks as (state as string, boundingBox as double[], confidence as double, span as (offset as integer, length as integer))[], lines as (content as string, boundingBox as double[], spans as (offset as integer, length as integer)[])[], spans as (offset as integer, length as integer)[])[], tables as (rowCount as integer, columnCount as integer, cells as (kind as string, rowIndex as integer, columnIndex as integer, rowSpan as integer, columnSpan as integer, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[])[], boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[])[], styles as string[], documents as (docType as string, boundingRegions as (pageNumber as integer, boundingBox as integer[])[], fields as ({tr-nif} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {req-morada} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-entrada2} as (type as string, confidence as double), {tr-tlf} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {tr-nome} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {req-email} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {tr-email} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {req-nome} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-entrada1} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {req-tlf} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-gps1} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {req-assintatura} as (type as string, confidence as double), {req-cpostal} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {tr-ndgeg} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-concelho} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-gps2} as (type as string, confidence as double), {req-nif_nipc} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-distrito} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc_imo-freguesia} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), tbl_inst_eletrica as (type as string, valueArray as (type as string, valueObject as ({ie-tipo_insta} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-entrada_imo} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-ramal} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-nip} as (type as string), {ie-cpe} as (type as string), {ie-andar} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-fracao} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-tipo_util} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-entrada} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-total_instal} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-fator_simult} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[]), {ie-potencia} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], spans as (offset as integer, length as integer)[])))[])), confidence as double, spans as (offset as integer, length as integer)[])[])",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'arrayOfDocuments') ~> source1",
+				"source1 foldDown(unroll(analyzeResult.documents),",
+				"     mapColumn(",
+				"          rq_nome = analyzeResult.documents.fields.{req-nome}.content,",
+				"          rq_nif = analyzeResult.documents.fields.{req-nif_nipc}.content,",
+				"          rq_tlf = analyzeResult.documents.fields.{req-tlf}.content,",
+				"          rq_email = analyzeResult.documents.fields.{req-email}.content,",
+				"          rq_morada = analyzeResult.documents.fields.{req-morada}.content,",
+				"          rq_cpostal = analyzeResult.documents.fields.{req-cpostal}.content,",
+				"          rq_assinatura = analyzeResult.documents.fields.{req-assintatura}.type,",
+				"          tr_nome = analyzeResult.documents.fields.{tr-nome}.content,",
+				"          tr_nif = analyzeResult.documents.fields.{tr-nif}.content,",
+				"          tr_tlf = analyzeResult.documents.fields.{tr-tlf}.content,",
+				"          tr_email = analyzeResult.documents.fields.{tr-email}.content,",
+				"          {tr-ndgeg} = analyzeResult.documents.fields.{tr-ndgeg}.content,",
+				"          rq_nome_conf = analyzeResult.documents.fields.{req-nome}.confidence,",
+				"          rq_nif_conf = analyzeResult.documents.fields.{req-nif_nipc}.confidence,",
+				"          rq_tlf_conf = analyzeResult.documents.fields.{req-tlf}.confidence,",
+				"          rq_email_conf = analyzeResult.documents.fields.{req-email}.confidence,",
+				"          rq_morada_conf = analyzeResult.documents.fields.{req-morada}.confidence,",
+				"          rq_cpostal_conf = analyzeResult.documents.fields.{req-cpostal}.confidence,",
+				"          rq_assinatura_conf = analyzeResult.documents.fields.{req-assintatura}.confidence,",
+				"          tr_nome_conf = analyzeResult.documents.fields.{tr-nome}.confidence,",
+				"          tr_nif_conf = analyzeResult.documents.fields.{tr-nif}.confidence,",
+				"          tr_tlf_conf = analyzeResult.documents.fields.{tr-tlf}.confidence,",
+				"          tr_email_conf = analyzeResult.documents.fields.{tr-email}.confidence,",
+				"          tr_ndgeg_conf = analyzeResult.documents.fields.{tr-ndgeg}.confidence,",
+				"          Freguesia = analyzeResult.documents.fields.{loc_imo-freguesia}.content,",
+				"          Freguesia_conf = analyzeResult.documents.fields.{loc_imo-freguesia}.confidence,",
+				"          Concelho = analyzeResult.documents.fields.{loc_imo-concelho}.content,",
+				"          Concelho_conf = analyzeResult.documents.fields.{loc_imo-concelho}.confidence,",
+				"          Distrito = analyzeResult.documents.fields.{loc_imo-distrito}.content,",
+				"          Distrito_conf = analyzeResult.documents.fields.{loc_imo-distrito}.confidence,",
+				"          Entrada_E1 = analyzeResult.documents.fields.{loc_imo-entrada1}.content,",
+				"          Entrada_E1_conf = analyzeResult.documents.fields.{loc_imo-entrada1}.confidence,",
+				"          Entrada_E2 = analyzeResult.documents.fields.{loc_imo-entrada1}.content,",
+				"          Entrada_E2_conf = analyzeResult.documents.fields.{loc_imo-entrada2}.confidence,",
+				"          Coordenadas = analyzeResult.documents.fields.{loc_imo-gps1}.content,",
+				"          Coordenadas_conf = analyzeResult.documents.fields.{loc_imo-gps1}.confidence,",
+				"          tbl_inst_eletrica = analyzeResult.documents.fields.tbl_inst_eletrica,",
+				"          fator_de_simultaneadade = analyzeResult.documents.fields.tbl_inst_eletrica.valueArray.valueObject.{ie-fator_simult}",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1"
+			]
+		}
+	}
+}
