@@ -27,6 +27,10 @@
 				},
 				{
 					"name": "flatten2"
+				},
+				{
+					"name": "MapDrifted1",
+					"description": "Creates an explicit mapping for each drifted column"
 				}
 			],
 			"scriptLines": [
@@ -135,7 +139,18 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten2",
-				"flatten2 sink(allowSchemaDrift: true,",
+				"flatten2 derive({Tipo_de_Instalação} = toString(byName('Tipo_de_Instalação')),",
+				"          Entrada_do_imovel = toString(byName('Entrada_do_imovel')),",
+				"          Andar = toString(byName('Andar')),",
+				"          Potencia_Alimentar = toString(byName('Potencia_Alimentar')),",
+				"          Nip_inc = toString(byName('Nip_inc')),",
+				"          Cpe_inc = toString(byName('Cpe_inc')),",
+				"          Total_Instalado = toString(byName('Total_Instalado')),",
+				"          Entrada = toString(byName('Entrada')),",
+				"          Ramal = toString(byName('Ramal')),",
+				"          {Tipo_de_Utilização_individual} = toString(byName('Tipo_de_Utilização_individual')),",
+				"          Fator_de_Simultaneadade = toString(byName('Fator_de_Simultaneadade'))) ~> MapDrifted1",
+				"MapDrifted1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ID as integer,",
@@ -194,8 +209,6 @@
 				"     updateable:false,",
 				"     upsertable:false,",
 				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
 				"     mapColumn(",
 				"          DS_RQ_NOME = rq_nome,",
 				"          VL_RQ_NOME_CONF = rq_nome_conf,",
@@ -232,19 +245,7 @@
 				"          DS_ENTRADA_E2 = Entrada_E2,",
 				"          DS_ENTRADA_E2_CONF = Entrada_E2_conf,",
 				"          VL_COORDENADAS = Coordenadas,",
-				"          VL_COORDENADAS_CONF = Coordenadas_conf,",
-				"          DS_TIPO_DE_INSTALACAO = {Tipo_de_Instalação},",
-				"          DS_ENTRADA_DO_IMOVEL = Entrada_do_imovel,",
-				"          VL_RAMAL = Ramal,",
-				"          VL_NIP = Nip_inc,",
-				"          DS_CPE = Cpe_inc,",
-				"          DS_ANDAR = Andar,",
-				"          {DS_FRACÇAO} = {Fracçao},",
-				"          {DS_TIPO_DE_ULITIZAÇAO_INDIVIDUAL} = {Tipo_de_Utilização_individual},",
-				"          DS_ENTRADA = Entrada,",
-				"          VL_TOTAL_INSTALADO = Total_Instalado,",
-				"          VL_FATOR_DE_SIMULTANEADADE = Fator_de_Simultaneadade,",
-				"          VL_POTENCIA_ALIMENTAR = Potencia_Alimentar",
+				"          VL_COORDENADAS_CONF = Coordenadas_conf",
 				"     )) ~> sink1"
 			]
 		}
