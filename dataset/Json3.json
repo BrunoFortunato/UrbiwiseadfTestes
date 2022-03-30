@@ -1,0 +1,1560 @@
+{
+	"name": "Json3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "PP.pdf.json",
+				"container": "urbiwiseadf"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"status": {
+					"type": "string"
+				},
+				"createdDateTime": {
+					"type": "string"
+				},
+				"lastUpdatedDateTime": {
+					"type": "string"
+				},
+				"analyzeResult": {
+					"type": "object",
+					"properties": {
+						"apiVersion": {
+							"type": "string"
+						},
+						"modelId": {
+							"type": "string"
+						},
+						"stringIndexType": {
+							"type": "string"
+						},
+						"content": {
+							"type": "string"
+						},
+						"pages": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"pageNumber": {
+										"type": "integer"
+									},
+									"angle": {
+										"type": "integer"
+									},
+									"width": {
+										"type": "number"
+									},
+									"height": {
+										"type": "integer"
+									},
+									"unit": {
+										"type": "string"
+									},
+									"words": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"content": {
+													"type": "string"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "number"
+													}
+												},
+												"confidence": {
+													"type": "integer"
+												},
+												"span": {
+													"type": "object",
+													"properties": {
+														"offset": {
+															"type": "integer"
+														},
+														"length": {
+															"type": "integer"
+														}
+													}
+												}
+											}
+										}
+									},
+									"selectionMarks": {
+										"type": "array"
+									},
+									"lines": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"content": {
+													"type": "string"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "number"
+													}
+												},
+												"spans": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"offset": {
+																"type": "integer"
+															},
+															"length": {
+																"type": "integer"
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"tables": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"rowCount": {
+										"type": "integer"
+									},
+									"columnCount": {
+										"type": "integer"
+									},
+									"cells": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"kind": {
+													"type": "string"
+												},
+												"rowIndex": {
+													"type": "integer"
+												},
+												"columnIndex": {
+													"type": "integer"
+												},
+												"rowSpan": {
+													"type": "integer"
+												},
+												"columnSpan": {
+													"type": "integer"
+												},
+												"content": {
+													"type": "string"
+												},
+												"boundingRegions": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"pageNumber": {
+																"type": "integer"
+															},
+															"boundingBox": {
+																"type": "array",
+																"items": {
+																	"type": "number"
+																}
+															}
+														}
+													}
+												},
+												"spans": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"offset": {
+																"type": "integer"
+															},
+															"length": {
+																"type": "integer"
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"boundingRegions": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"pageNumber": {
+													"type": "integer"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "number"
+													}
+												}
+											}
+										}
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"styles": {
+							"type": "array"
+						},
+						"documents": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"docType": {
+										"type": "string"
+									},
+									"boundingRegions": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"pageNumber": {
+													"type": "integer"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "integer"
+													}
+												}
+											}
+										}
+									},
+									"fields": {
+										"type": "object",
+										"properties": {
+											"req-nome": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tr-tlf": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-gps1": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tr-ndgeg": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-morada": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-entrada1": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tr-email": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-gps2": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"confidence": {
+														"type": "number"
+													}
+												}
+											},
+											"loc_imo-freguesia": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-distrito": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tr-nome": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-email": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-nif_nipc": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-tlf": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-cpostal": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-entrada2": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"confidence": {
+														"type": "number"
+													}
+												}
+											},
+											"req-assinatura": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"confidence": {
+														"type": "number"
+													}
+												}
+											},
+											"tr-nif": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-concelho": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tbl_inst_eletrica": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueArray": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"type": {
+																	"type": "string"
+																},
+																"valueObject": {
+																	"type": "object",
+																	"properties": {
+																		"ie-tipo_insta": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-entrada_imo": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-ramal": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-nip": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				}
+																			}
+																		},
+																		"ie-cpe": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				}
+																			}
+																		},
+																		"ie-andar": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-fracao": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				}
+																			}
+																		},
+																		"ie-tipo_util": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-entrada": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-total_instal": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-fator_simult": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		},
+																		"ie-potencia": {
+																			"type": "object",
+																			"properties": {
+																				"type": {
+																					"type": "string"
+																				},
+																				"valueString": {
+																					"type": "string"
+																				},
+																				"content": {
+																					"type": "string"
+																				},
+																				"boundingRegions": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"pageNumber": {
+																								"type": "integer"
+																							},
+																							"boundingBox": {
+																								"type": "array",
+																								"items": {
+																									"type": "number"
+																								}
+																							}
+																						}
+																					}
+																				},
+																				"spans": {
+																					"type": "array",
+																					"items": {
+																						"type": "object",
+																						"properties": {
+																							"offset": {
+																								"type": "integer"
+																							},
+																							"length": {
+																								"type": "integer"
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"confidence": {
+										"type": "number"
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
