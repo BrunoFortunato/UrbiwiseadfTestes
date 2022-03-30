@@ -1,0 +1,64 @@
+{
+	"name": "ParseCP",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Json2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "flatten1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          status as string,",
+				"          createdDateTime as string,",
+				"          lastUpdatedDateTime as string,",
+				"          analyzeResult as (apiVersion as string, modelId as string, stringIndexType as string, content as string, pages as (pageNumber as integer, angle as integer, width as double, height as double, unit as string, words as (content as string, boundingBox as double[], confidence as integer, span as (offset as integer, length as integer))[], selectionMarks as (state as string, boundingBox as double[], confidence as double, span as (offset as integer, length as integer))[], lines as (content as string, boundingBox as double[], spans as (offset as integer, length as integer)[])[], spans as (offset as integer, length as integer)[])[], tables as string[], styles as (isHandwritten as boolean, confidence as integer, spans as (offset as integer, length as integer)[])[], documents as (docType as string, boundingRegions as (pageNumber as integer, boundingBox as integer[])[], fields as ({ip-cd_distrito} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {ip-cd_concelho} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {ip-cd_freguesia} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc-rua} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc-n_lote} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc-lugar} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc-cod_postal} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[]), {loc-localidade} as (type as string, valueString as string, content as string, boundingRegions as (pageNumber as integer, boundingBox as double[])[], confidence as double, spans as (offset as integer, length as integer)[])), confidence as double, spans as (offset as integer, length as integer)[])[])",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'arrayOfDocuments') ~> source1",
+				"source1 foldDown(unroll(analyzeResult.documents),",
+				"     mapColumn(",
+				"          Distrito = analyzeResult.documents.fields.{ip-cd_distrito}.content,",
+				"          Concelho = analyzeResult.documents.fields.{ip-cd_concelho}.content,",
+				"          Freguesia = analyzeResult.documents.fields.{ip-cd_freguesia}.content,",
+				"          Rua = analyzeResult.documents.fields.{loc-rua}.content,",
+				"          Lote = analyzeResult.documents.fields.{loc-n_lote}.content,",
+				"          Lugar = analyzeResult.documents.fields.{loc-lugar}.content,",
+				"          Codigo_Postal = analyzeResult.documents.fields.{loc-cod_postal}.content,",
+				"          Localidade = analyzeResult.documents.fields.{loc-localidade}.content,",
+				"          Distrito_conf = analyzeResult.documents.fields.{ip-cd_distrito}.confidence,",
+				"          {Concelho-conf} = analyzeResult.documents.fields.{ip-cd_concelho}.confidence,",
+				"          {Freguesia-conf} = analyzeResult.documents.fields.{ip-cd_freguesia}.confidence,",
+				"          Rua_conf = analyzeResult.documents.fields.{loc-rua}.confidence,",
+				"          Lote_conf = analyzeResult.documents.fields.{loc-n_lote}.confidence,",
+				"          Lugar_conf = analyzeResult.documents.fields.{loc-lugar}.confidence,",
+				"          Codigo_postal_conf = analyzeResult.documents.fields.{loc-cod_postal}.confidence,",
+				"          Localidade_conf = analyzeResult.documents.fields.{loc-localidade}.confidence",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
