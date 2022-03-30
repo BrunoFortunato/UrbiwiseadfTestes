@@ -16,6 +16,9 @@
 			"transformations": [
 				{
 					"name": "flatten1"
+				},
+				{
+					"name": "flatten2"
 				}
 			],
 			"scriptLines": [
@@ -67,11 +70,53 @@
 				"          Entrada_E2_conf = analyzeResult.documents.fields.{loc_imo-entrada2}.confidence,",
 				"          Coordenadas = analyzeResult.documents.fields.{loc_imo-gps1}.content,",
 				"          Coordenadas_conf = analyzeResult.documents.fields.{loc_imo-gps1}.confidence,",
-				"          tbl_inst_eletrica = analyzeResult.documents.fields.tbl_inst_eletrica,",
-				"          fator_de_simultaneadade = analyzeResult.documents.fields.tbl_inst_eletrica.valueArray.valueObject.{ie-fator_simult}",
+				"          tbl_inst_eletrica_vl = analyzeResult.documents.fields.tbl_inst_eletrica.valueArray.valueObject",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1"
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 foldDown(unroll(tbl_inst_eletrica_vl),",
+				"     mapColumn(",
+				"          rq_nome,",
+				"          rq_nif,",
+				"          rq_tlf,",
+				"          rq_email,",
+				"          rq_morada,",
+				"          rq_cpostal,",
+				"          rq_assinatura,",
+				"          tr_nome,",
+				"          tr_nif,",
+				"          tr_tlf,",
+				"          tr_email,",
+				"          {tr-ndgeg},",
+				"          rq_nome_conf,",
+				"          rq_nif_conf,",
+				"          rq_tlf_conf,",
+				"          rq_email_conf,",
+				"          rq_morada_conf,",
+				"          rq_cpostal_conf,",
+				"          rq_assinatura_conf,",
+				"          tr_nome_conf,",
+				"          tr_nif_conf,",
+				"          tr_tlf_conf,",
+				"          tr_email_conf,",
+				"          tr_ndgeg_conf,",
+				"          Freguesia,",
+				"          Freguesia_conf,",
+				"          Concelho,",
+				"          Concelho_conf,",
+				"          Distrito,",
+				"          Distrito_conf,",
+				"          Entrada_E1,",
+				"          Entrada_E1_conf,",
+				"          Entrada_E2,",
+				"          Entrada_E2_conf,",
+				"          Coordenadas,",
+				"          Coordenadas_conf,",
+				"          {Tipo_de_Instalação} = tbl_inst_eletrica_vl.{ie-tipo_insta}.content,",
+				"          Entrada_do_imovel = tbl_inst_eletrica_vl.{ie-entrada_imo}.content",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten2"
 			]
 		}
 	}
