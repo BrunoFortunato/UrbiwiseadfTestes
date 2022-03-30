@@ -60,7 +60,7 @@
 				"          rq_email_conf = analyzeResult.documents.fields.{req-email}.confidence,",
 				"          rq_morada_conf = analyzeResult.documents.fields.{req-morada}.confidence,",
 				"          rq_cpostal_conf = analyzeResult.documents.fields.{req-cpostal}.confidence,",
-				"          rq_assinatura_conf = analyzeResult.documents.fields.{req-assintatura}.confidence,",
+				"          rq_assinatura_conf = analyzeResult.documents.fields.{req-assinatura}.confidence,",
 				"          tr_nome_conf = analyzeResult.documents.fields.{tr-nome}.confidence,",
 				"          tr_nif_conf = analyzeResult.documents.fields.{tr-nif}.confidence,",
 				"          tr_tlf_conf = analyzeResult.documents.fields.{tr-tlf}.confidence,",
