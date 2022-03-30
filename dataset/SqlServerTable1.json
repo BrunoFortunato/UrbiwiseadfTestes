@@ -1,0 +1,254 @@
+{
+	"name": "SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ID_CHAVE_DE_NEGOCIO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_RQ_NOME",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_NOME_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_RQ_NIF",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_NIF_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_RQ_TELEFONE",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_TELEFONE_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_RQ_EMAIL",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_EMAIL_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_RQ_MORADA",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_MORADA_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_RQ_CODIGO_POSTAL",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_CODIGO_POSTAL_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_RQ_ASSINATURA",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RQ_ASSINATURA_conf",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_TR_NOME",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_TR_NOME_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_TR_NIF",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_TR_NIF_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_TR_TELEFONE",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_TR_TELEFONE_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_TR_EMAIL",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_TR_EMAIL_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_TR_NDGEG",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_TR_NDGEG_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_DISTRITO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_DISTRITO_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_CONCELHO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CONCELHO_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_FREGUESIA",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_FREGUESIA_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_ENTRADA_E1",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_ENTRADA_E1_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_ENTRADA_E2",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_ENTRADA_E2_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "VL_COORDENADAS",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_COORDENADAS_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_TIPO_DE_INSTALACAO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_ENTRADA_DO_IMOVEL",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_RAMAL",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_NIP",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CPE",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_ANDAR",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_FRACÇAO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_TIPO_DE_ULITIZAÇAO_INDIVIDUAL",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_ENTRADA",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_TOTAL_INSTALADO",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_FATOR_DE_SIMULTANEADADE",
+				"type": "varchar"
+			},
+			{
+				"name": "VL_POTENCIA_ALIMENTAR",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "All_"
+		}
+	}
+}
