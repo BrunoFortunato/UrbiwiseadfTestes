@@ -123,7 +123,7 @@
 				"          {Tipo_de_Instalação} = tbl_inst_eletrica_vl.{ie-tipo_insta}.content,",
 				"          Entrada_do_imovel = tbl_inst_eletrica_vl.{ie-entrada_imo}.content,",
 				"          Andar = tbl_inst_eletrica_vl.{ie-andar}.content,",
-				"          {Fracçao} = tbl_inst_eletrica_vl.{ie-fracao}.content,",
+				"          {Fracçao} = tbl_inst_eletrica_vl.{ie-fracao}.type,",
 				"          Potencia_Alimentar = tbl_inst_eletrica_vl.{ie-potencia}.content,",
 				"          Nip_inc = tbl_inst_eletrica_vl.{ie-nip}.type,",
 				"          Cpe_inc = tbl_inst_eletrica_vl.{ie-cpe}.type,",
