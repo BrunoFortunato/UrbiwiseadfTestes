@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "FE Corretamente Preenchida_1.pdf.json",
+				"fileName": "PP22.pdf.json",
 				"container": "urbiwiseadf"
 			}
 		},
