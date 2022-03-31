@@ -1,0 +1,106 @@
+{
+	"name": "SqlServerTable2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ID_CHAVE_DE_NEGOCIO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CD_DISTRITO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CD_DISTRITO_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_CD_CONCELHO",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CD_CONCELHO_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_CD_FREGUESIA",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CD_FREGUESIA_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_RUA",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_RUA_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_LOTE",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_LOTE_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_LUGAR",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_LUGAR_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_CODIGO_POSTAL",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_CODIGO_POSTAL_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "DS_LOCALIDADE",
+				"type": "varchar"
+			},
+			{
+				"name": "DS_LOCALIDADE_CONF",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CADERNETA_PREDIAL"
+		}
+	}
+}
