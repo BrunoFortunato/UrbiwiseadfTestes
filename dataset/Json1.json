@@ -56,7 +56,7 @@
 										"type": "number"
 									},
 									"height": {
-										"type": "number"
+										"type": "integer"
 									},
 									"unit": {
 										"type": "string"
@@ -93,35 +93,7 @@
 										}
 									},
 									"selectionMarks": {
-										"type": "array",
-										"items": {
-											"type": "object",
-											"properties": {
-												"state": {
-													"type": "string"
-												},
-												"boundingBox": {
-													"type": "array",
-													"items": {
-														"type": "number"
-													}
-												},
-												"confidence": {
-													"type": "number"
-												},
-												"span": {
-													"type": "object",
-													"properties": {
-														"offset": {
-															"type": "integer"
-														},
-														"length": {
-															"type": "integer"
-														}
-													}
-												}
-											}
-										}
+										"type": "array"
 									},
 									"lines": {
 										"type": "array",
@@ -274,7 +246,32 @@
 							}
 						},
 						"styles": {
-							"type": "array"
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"isHandwritten": {
+										"type": "boolean"
+									},
+									"confidence": {
+										"type": "integer"
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
 						},
 						"documents": {
 							"type": "array",
@@ -304,7 +301,7 @@
 									"fields": {
 										"type": "object",
 										"properties": {
-											"tr-nif": {
+											"loc_imo-entrada1": {
 												"type": "object",
 												"properties": {
 													"type": {
@@ -400,14 +397,387 @@
 													}
 												}
 											},
-											"loc_imo-entrada2": {
+											"tr-ndgeg": {
 												"type": "object",
 												"properties": {
 													"type": {
 														"type": "string"
 													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
 													"confidence": {
 														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-freguesia": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-nome": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tr-nif": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-tlf": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc_imo-concelho": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-assinatura": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"req-email": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
 													}
 												}
 											},
@@ -507,7 +877,7 @@
 													}
 												}
 											},
-											"req-email": {
+											"req-nif_nipc": {
 												"type": "object",
 												"properties": {
 													"type": {
@@ -552,416 +922,10 @@
 																}
 															}
 														}
-													}
-												}
-											},
-											"tr-email": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"req-nome": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"loc_imo-entrada1": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"req-tlf": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"loc_imo-gps1": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"req-assintatura": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"confidence": {
-														"type": "number"
 													}
 												}
 											},
 											"req-cpostal": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"tr-ndgeg": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"loc_imo-concelho": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"valueString": {
-														"type": "string"
-													},
-													"content": {
-														"type": "string"
-													},
-													"boundingRegions": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"pageNumber": {
-																	"type": "integer"
-																},
-																"boundingBox": {
-																	"type": "array",
-																	"items": {
-																		"type": "number"
-																	}
-																}
-															}
-														}
-													},
-													"confidence": {
-														"type": "number"
-													},
-													"spans": {
-														"type": "array",
-														"items": {
-															"type": "object",
-															"properties": {
-																"offset": {
-																	"type": "integer"
-																},
-																"length": {
-																	"type": "integer"
-																}
-															}
-														}
-													}
-												}
-											},
-											"loc_imo-gps2": {
-												"type": "object",
-												"properties": {
-													"type": {
-														"type": "string"
-													},
-													"confidence": {
-														"type": "number"
-													}
-												}
-											},
-											"req-nif_nipc": {
 												"type": "object",
 												"properties": {
 													"type": {
@@ -1057,7 +1021,77 @@
 													}
 												}
 											},
-											"loc_imo-freguesia": {
+											"loc_imo-entrada2": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"confidence": {
+														"type": "number"
+													}
+												}
+											},
+											"loc_imo-gps2": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"confidence": {
+														"type": "number"
+													}
+												}
+											},
+											"loc_imo-gps1": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"tr-email": {
 												"type": "object",
 												"properties": {
 													"type": {
@@ -1323,43 +1357,6 @@
 																			"properties": {
 																				"type": {
 																					"type": "string"
-																				},
-																				"valueString": {
-																					"type": "string"
-																				},
-																				"content": {
-																					"type": "string"
-																				},
-																				"boundingRegions": {
-																					"type": "array",
-																					"items": {
-																						"type": "object",
-																						"properties": {
-																							"pageNumber": {
-																								"type": "integer"
-																							},
-																							"boundingBox": {
-																								"type": "array",
-																								"items": {
-																									"type": "number"
-																								}
-																							}
-																						}
-																					}
-																				},
-																				"spans": {
-																					"type": "array",
-																					"items": {
-																						"type": "object",
-																						"properties": {
-																							"offset": {
-																								"type": "integer"
-																							},
-																							"length": {
-																								"type": "integer"
-																							}
-																						}
-																					}
 																				}
 																			}
 																		},
