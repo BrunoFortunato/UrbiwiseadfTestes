@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "PP22.pdf.json",
+				"fileName": "PP.pdf.json",
 				"container": "urbiwiseadf"
 			}
 		},
