@@ -48,7 +48,7 @@
 				"          DS_RQ_EMAIL = analyzeResult.documents.fields.{req-email}.content,",
 				"          VL_RQ_MORADA = analyzeResult.documents.fields.{req-morada}.content,",
 				"          VL_RQ_CODIGO_POSTAL = analyzeResult.documents.fields.{req-cpostal}.content,",
-				"          DS_RQ_ASSINATURA = analyzeResult.documents.fields.{req-assinatura}.type,",
+				"          DS_RQ_ASSINATURA = analyzeResult.documents.fields.{req-assinatura}.content,",
 				"          DS_TR_NOME = analyzeResult.documents.fields.{tr-nome}.content,",
 				"          VL_TR_NIF = analyzeResult.documents.fields.{tr-nif}.content,",
 				"          VL_TR_TELEFONE = analyzeResult.documents.fields.{tr-tlf}.content,",
