@@ -45,7 +45,7 @@
 						"value": "@activity('Lookup1').output",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "Data flow1",
@@ -58,7 +58,6 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [],
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "dataflow1",
@@ -67,6 +66,16 @@
 										"source1": {
 											"schema": {
 												"value": "@item().table_name",
+												"type": "Expression"
+											},
+											"table": {
+												"value": "@item().table_name",
+												"type": "Expression"
+											}
+										},
+										"sink1": {
+											"schema": {
+												"value": "@item().table_schema",
 												"type": "Expression"
 											},
 											"table": {
