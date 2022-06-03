@@ -1,0 +1,72 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SQL_Source",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "SqlServerTable3",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          ID_SOURCE as string,",
+				"          ID_ADDRESS as string,",
+				"          ID_STREET as string,",
+				"          ST_ORIG as string,",
+				"          ST_EXPAND as string,",
+				"          ST_TYPE as string,",
+				"          ST_PREP1 as string,",
+				"          ST_TITLE as string,",
+				"          ST_PREP2 as string,",
+				"          ST_NAME as string,",
+				"          ST_COMPL as string,",
+				"          AD_DOOR_ORIG as string,",
+				"          AD_DOOR as string,",
+				"          AD_FLOOR_ORIG as string,",
+				"          AD_FLOOR as string,",
+				"          AD_UNIT_ORIG as string,",
+				"          AD_UNIT as string,",
+				"          AD_COMPL_ORIG as string,",
+				"          AD_COMPL as string,",
+				"          AD_SINGLE_UNIT as string,",
+				"          AD_MULTI_UNIT as string,",
+				"          AD_POSTAL_CODE as string,",
+				"          AD_POSTAL_CITY as string,",
+				"          AD_POSTAL_LOCAL as string,",
+				"          ST_EXPAND_PREP as string,",
+				"          ID_PRIORITY as string,",
+				"          ID_MATCH as string,",
+				"          CD_MATCH as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}

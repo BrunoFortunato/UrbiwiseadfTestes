@@ -1,0 +1,143 @@
+{
+	"name": "SQL_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DynamicTables",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ID_SOURCE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_ADDRESS",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_STREET",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_ORIG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_EXPAND",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_TYPE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_PREP1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_TITLE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_PREP2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_NAME",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_COMPL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_DOOR_ORIG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_DOOR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_FLOOR_ORIG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_FLOOR",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_UNIT_ORIG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_UNIT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_COMPL_ORIG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_COMPL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_SINGLE_UNIT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_MULTI_UNIT",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_POSTAL_CODE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_POSTAL_CITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AD_POSTAL_LOCAL",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ST_EXPAND_PREP",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_PRIORITY",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ID_MATCH",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CD_MATCH",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table",
+				"type": "Expression"
+			}
+		}
+	}
+}
