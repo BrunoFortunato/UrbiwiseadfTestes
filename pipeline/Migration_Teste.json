@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "ListOfTables",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,12 +17,12 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "select table_schema, table_name from INFORMATION_SCHEMA.tables where TABLE_TYPE = 'base table' and TABLE_SCHEMA = 'uda_develop'",
+						"sqlReaderQuery": "select table_schema, table_name from INFORMATION_SCHEMA.tables where TABLE_TYPE = 'base table' and TABLE_SCHEMA = 'teste'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "SqlServerTable3",
+						"referenceName": "Urbi_sql",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -33,7 +33,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "ListOfTables",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -42,13 +42,13 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup1').output.value",
+						"value": "@activity('ListOfTables').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copytabletosql",
+							"name": "Copy data1",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -69,14 +69,8 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "SqlServerTableDynamic",
-									"type": "DatasetReference",
-									"parameters": {
-										"schema": {
-											"value": "@item().table_schema",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "Urbi_sql",
+									"type": "DatasetReference"
 								}
 							]
 						}

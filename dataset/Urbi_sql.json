@@ -1,0 +1,57 @@
+{
+	"name": "Urbi_sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DynamicTables",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "dicofre",
+				"type": "nvarchar"
+			},
+			{
+				"name": "district",
+				"type": "nvarchar"
+			},
+			{
+				"name": "county",
+				"type": "nvarchar"
+			},
+			{
+				"name": "parish",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table",
+				"type": "Expression"
+			}
+		}
+	}
+}
