@@ -1,0 +1,43 @@
+{
+	"name": "Database_fixed",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Teste",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "dicofre",
+				"type": "nvarchar"
+			},
+			{
+				"name": "district",
+				"type": "nvarchar"
+			},
+			{
+				"name": "county",
+				"type": "nvarchar"
+			},
+			{
+				"name": "parish",
+				"type": "nvarchar"
+			},
+			{
+				"name": "status",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "teste",
+			"table": "tbl_dicofres"
+		}
+	}
+}

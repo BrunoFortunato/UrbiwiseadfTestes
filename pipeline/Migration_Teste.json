@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "ListOfTables",
+				"name": "Lookup1",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -22,7 +22,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "Urbi_sql",
+						"referenceName": "Database_fixed",
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
@@ -33,7 +33,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "ListOfTables",
+						"activity": "Lookup1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -42,7 +42,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('ListOfTables').output.value",
+						"value": "@activity('Lookup1').output",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -65,51 +65,12 @@
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
-								"sink": {
-									"type": "SqlServerSink",
-									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
+								"enableStaging": false
 							},
 							"inputs": [
 								{
-									"referenceName": "Urbi_sql",
-									"type": "DatasetReference",
-									"parameters": {
-										"schema": {
-											"value": "@item().table_schema",
-											"type": "Expression"
-										},
-										"table": {
-											"value": "@item().table_name",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "SqlServerTable3",
-									"type": "DatasetReference",
-									"parameters": {
-										"schema": {
-											"value": "@item().table_schema",
-											"type": "Expression"
-										},
-										"table": {
-											"value": "@item().table_name",
-											"type": "Expression"
-										}
-									}
+									"referenceName": "Dynamic",
+									"type": "DatasetReference"
 								}
 							]
 						}
