@@ -45,9 +45,10 @@
 						"value": "@activity('Lookup1').output",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
 						{
-							"name": "Migrate_tables",
+							"name": "Data flow1",
 							"type": "ExecuteDataFlow",
 							"dependsOn": [],
 							"policy": {
@@ -65,7 +66,7 @@
 									"datasetParameters": {
 										"source1": {
 											"schema": {
-												"value": "@item().table_schema",
+												"value": "@item().table_name",
 												"type": "Expression"
 											},
 											"table": {

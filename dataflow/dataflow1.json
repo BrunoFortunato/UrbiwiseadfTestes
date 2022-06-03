@@ -23,6 +23,10 @@
 			],
 			"transformations": [],
 			"scriptLines": [
+				"parameters{",
+				"     tablename as string,",
+				"     schema as string",
+				"}",
 				"source(output(",
 				"          ID_SOURCE as string,",
 				"          ID_ADDRESS as string,",
