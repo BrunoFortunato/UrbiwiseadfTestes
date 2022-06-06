@@ -85,14 +85,8 @@
 									"referenceName": "Dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"schema": {
-											"value": "@item().table_schema",
-											"type": "Expression"
-										},
-										"table": {
-											"value": "@item().table_name",
-											"type": "Expression"
-										}
+										"schema": "teste",
+										"table": "tbl_dicofres"
 									}
 								}
 							],
@@ -101,14 +95,8 @@
 									"referenceName": "SinkTable_Dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"schema": {
-											"value": "@item().table_schema",
-											"type": "Expression"
-										},
-										"table": {
-											"value": "@item().table_name",
-											"type": "Expression"
-										}
+										"schema": "teste",
+										"table": "tbl_dicofres"
 									}
 								}
 							]
