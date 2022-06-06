@@ -42,7 +42,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup1').output",
+						"value": "@activity('Lookup1').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -68,85 +68,12 @@
 								"sink": {
 									"type": "SqlServerSink",
 									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": true
+									"sqlWriterUseTableLock": true,
+									"tableOption": "autoCreate"
 								},
 								"enableStaging": false,
 								"translator": {
 									"type": "TabularTranslator",
-									"mappings": [
-										{
-											"source": {
-												"name": "id",
-												"type": "Int32",
-												"physicalType": "int"
-											},
-											"sink": {
-												"name": "id",
-												"type": "Int32",
-												"physicalType": "int"
-											}
-										},
-										{
-											"source": {
-												"name": "dicofre",
-												"type": "String",
-												"physicalType": "nvarchar"
-											},
-											"sink": {
-												"name": "dicofre",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "district",
-												"type": "String",
-												"physicalType": "nvarchar"
-											},
-											"sink": {
-												"name": "district",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "county",
-												"type": "String",
-												"physicalType": "nvarchar"
-											},
-											"sink": {
-												"name": "county",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "parish",
-												"type": "String",
-												"physicalType": "nvarchar"
-											},
-											"sink": {
-												"name": "parish",
-												"type": "String",
-												"physicalType": "nvarchar"
-											}
-										},
-										{
-											"source": {
-												"name": "status",
-												"type": "Int32",
-												"physicalType": "int"
-											},
-											"sink": {
-												"name": "status",
-												"type": "Int32",
-												"physicalType": "int"
-											}
-										}
-									],
 									"typeConversion": true,
 									"typeConversionSettings": {
 										"allowDataTruncation": true,
@@ -159,8 +86,14 @@
 									"referenceName": "Dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"schema": "teste",
-										"table": "tbl_dicofres"
+										"schema": {
+											"value": "@item().table_schema",
+											"type": "Expression"
+										},
+										"table": {
+											"value": "@item().table_name",
+											"type": "Expression"
+										}
 									}
 								}
 							],
@@ -169,8 +102,14 @@
 									"referenceName": "SinkTable_Dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"schema": "teste",
-										"table": "tbl_dicofres"
+										"schema": {
+											"value": "@item().table_schema",
+											"type": "Expression"
+										},
+										"table": {
+											"value": "@item().table_name",
+											"type": "Expression"
+										}
 									}
 								}
 							]
