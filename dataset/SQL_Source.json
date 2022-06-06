@@ -128,10 +128,6 @@
 				"name": "CD_MATCH",
 				"type": "nvarchar"
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "TMP_ADDRESS_NORM_ALL"
-		}
+		]
 	}
 }
