@@ -94,6 +94,17 @@
 												"type": "Expression"
 											}
 										}
+									},
+									"linkedServiceParameters": {
+										"source1": {
+											"schemaLinkedService": {
+												"schema": {
+													"value": "@item().table_schema",
+													"type": "Expression"
+												},
+												"table": "@item().table_name"
+											}
+										}
 									}
 								},
 								"compute": {
