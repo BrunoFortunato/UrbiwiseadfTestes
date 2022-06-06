@@ -130,14 +130,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().table",
-				"type": "Expression"
-			}
+			"schema": "dbo",
+			"table": "TMP_ADDRESS_NORM_ALL"
 		}
 	}
 }
