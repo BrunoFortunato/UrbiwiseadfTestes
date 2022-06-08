@@ -42,17 +42,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup1').output",
+						"value": "@activity('Lookup1').output.value",
 						"type": "Expression"
 					},
 					"isSequential": false,
 					"activities": [
 						{
-							"name": "MigrateTables",
-							"type": "ExecuteDataFlow",
+							"name": "Copy data1",
+							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
-								"timeout": "1.00:00:00",
+								"timeout": "7.00:00:00",
 								"retry": 0,
 								"retryIntervalInSeconds": 30,
 								"secureOutput": false,
@@ -60,59 +60,54 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"dataflow": {
-									"referenceName": "dataflow1",
-									"type": "DataFlowReference",
-									"parameters": {
-										"tablename": {
-											"value": "'@{item().table_name}'",
-											"type": "Expression"
-										},
-										"schema": {
-											"value": "'@{item().table_schema}'",
-											"type": "Expression"
-										}
+								"source": {
+									"type": "SqlServerSource",
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobStorageWriteSettings"
 									},
-									"datasetParameters": {
-										"source1": {
-											"schema": {
-												"value": "@item().table_name",
-												"type": "Expression"
-											},
-											"table": {
-												"value": "@item().table_name",
-												"type": "Expression"
-											}
-										},
-										"sink1": {
-											"schema": {
-												"value": "@item().table_schema",
-												"type": "Expression"
-											},
-											"table": {
-												"value": "@item().table_name",
-												"type": "Expression"
-											}
-										}
-									},
-									"linkedServiceParameters": {
-										"source1": {
-											"schemaLinkedService": {
-												"schema": {
-													"value": "@item().table_schema",
-													"type": "Expression"
-												},
-												"table": "@item().table_name"
-											}
-										}
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
 									}
 								},
-								"compute": {
-									"coreCount": 8,
-									"computeType": "General"
-								},
-								"traceLevel": "Fine"
-							}
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "Dynamic",
+									"type": "DatasetReference",
+									"parameters": {
+										"schema": {
+											"value": "@item().table_schema",
+											"type": "Expression"
+										},
+										"table": {
+											"value": "@item().table_name",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CSV_Storage_ACC",
+									"type": "DatasetReference"
+								}
+							]
 						}
 					]
 				}
