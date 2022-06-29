@@ -2,7 +2,7 @@
 	"name": "SQL_Source",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "DynamicTables",
+			"referenceName": "SqlServer4",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -128,6 +128,10 @@
 				"name": "CD_MATCH",
 				"type": "nvarchar"
 			}
-		]
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DIM_AGENT"
+		}
 	}
 }
