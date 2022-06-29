@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(variables('max'), 50000)",
+						"value": "@equals(int(variables('max')),50000)",
 						"type": "Expression"
 					},
 					"activities": [
