@@ -25,7 +25,8 @@
 						"referenceName": "SQL_Source",
 						"type": "DatasetReference",
 						"parameters": {
-							"SchemaDataset": "dbo"
+							"SchemaDataset": "dbo",
+							"TableDataset": "dim_agent"
 						}
 					},
 					"firstRowOnly": false
