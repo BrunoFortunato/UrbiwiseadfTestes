@@ -130,8 +130,14 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "DIM_AGENT"
+			"schema": {
+				"value": "@dataset().SchemaDataset",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().TableDataset",
+				"type": "Expression"
+			}
 		}
 	}
 }
