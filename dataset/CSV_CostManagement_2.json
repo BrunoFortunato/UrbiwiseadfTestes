@@ -7,8 +7,7 @@
 		},
 		"parameters": {
 			"FileName": {
-				"type": "string",
-				"defaultValue": "singularityexport_7a592796-4ce7-4c76-808b-a3059aaf0244.csv"
+				"type": "string"
 			}
 		},
 		"annotations": [],
