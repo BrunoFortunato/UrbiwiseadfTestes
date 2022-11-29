@@ -103,18 +103,32 @@
 									"type": "Expression"
 								}
 							}
-						},
+						}
+					]
+				}
+			},
+			{
+				"name": "ForEach2",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get Metadata2').output.childItems",
+						"type": "Expression"
+					},
+					"activities": [
 						{
-							"name": "Copy data1",
-							"type": "Copy",
-							"dependsOn": [
-								{
-									"activity": "Set variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"name": "Lookup1",
+							"type": "Lookup",
+							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -135,28 +149,12 @@
 										"type": "DelimitedTextReadSettings"
 									}
 								},
-								"sink": {
-									"type": "SqlServerSink",
-									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false
-								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
+								"dataset": {
 									"referenceName": "CSV_CostManagement_2",
 									"type": "DatasetReference",
 									"parameters": {
 										"FileName": {
-											"value": "@activity('Get Metadata2').output.itemName",
+											"value": "item().name",
 											"type": "Expression"
 										},
 										"FolderName": {
@@ -165,13 +163,7 @@
 										}
 									}
 								}
-							],
-							"outputs": [
-								{
-									"referenceName": "CostManagent",
-									"type": "DatasetReference"
-								}
-							]
+							}
 						}
 					]
 				}
@@ -179,6 +171,9 @@
 		],
 		"variables": {
 			"FolderName": {
+				"type": "String"
+			},
+			"Filename": {
 				"type": "String"
 			}
 		},
