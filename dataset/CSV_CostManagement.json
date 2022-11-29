@@ -1,0 +1,30 @@
+{
+	"name": "CSV_CostManagement",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azure_Blob_CostManagement",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@concat('exportcontainer/singularityexport',dataset().FolderName)",
+					"type": "Expression"
+				},
+				"container": "exportcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
