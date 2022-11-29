@@ -135,10 +135,7 @@
 									"referenceName": "CSV_CostManagement_2",
 									"type": "DatasetReference",
 									"parameters": {
-										"FileName": {
-											"value": "@activity('Get Metadata2').output.itemName",
-											"type": "Expression"
-										},
+										"FileName": "singularityexport_7a592796-4ce7-4c76-808b-a3059aaf0244.csv",
 										"FolderName": {
 											"value": "@concat('exportcontainer/singularityexport/', activity('Get Metadata1').output.itemName)",
 											"type": "Expression"
