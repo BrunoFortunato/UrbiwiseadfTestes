@@ -15,7 +15,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "exportcontainer/singularityexport",
+				"folderPath": {
+					"value": "@concat('exportcontainer/singularity', dataset().FolderName)",
+					"type": "Expression"
+				},
 				"container": "exportcontainer"
 			},
 			"columnDelimiter": ",",
