@@ -1,0 +1,16 @@
+{
+	"name": "CostManagent",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADFDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "CostManagement"
+		}
+	}
+}
