@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"folderPath": {
-					"value": "@concat('exportcontainer/singularityexport/',dataset().FolderName)",
+					"value": "@dataset().FolderName",
 					"type": "Expression"
 				},
 				"container": "exportcontainer"
