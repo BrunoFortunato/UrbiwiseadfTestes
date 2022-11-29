@@ -105,31 +105,11 @@
 							}
 						},
 						{
-							"name": "Set variable2",
-							"type": "SetVariable",
-							"dependsOn": [
-								{
-									"activity": "Set variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "Filename",
-								"value": {
-									"value": "@activity('Get Metadata2').output.itemName",
-									"type": "Expression"
-								}
-							}
-						},
-						{
 							"name": "Copy data1",
 							"type": "Copy",
 							"dependsOn": [
 								{
-									"activity": "Set variable2",
+									"activity": "Set variable1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -149,6 +129,7 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
+										"wildcardFileName": "*",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -172,13 +153,9 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "CSV_CostManagement_2",
+									"referenceName": "CSV_CostManagement",
 									"type": "DatasetReference",
 									"parameters": {
-										"FileName": {
-											"value": "@variables('Filename')",
-											"type": "Expression"
-										},
 										"FolderName": {
 											"value": "@variables('FolderName')",
 											"type": "Expression"
