@@ -85,11 +85,31 @@
 							}
 						},
 						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Get Metadata2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "FolderName",
+								"value": {
+									"value": "@concat('exportcontainer/singularityexport/', item().name)",
+									"type": "Expression"
+								}
+							}
+						},
+						{
 							"name": "Copy data1",
 							"type": "Copy",
 							"dependsOn": [
 								{
-									"activity": "Get Metadata2",
+									"activity": "Set variable1",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -135,9 +155,12 @@
 									"referenceName": "CSV_CostManagement_2",
 									"type": "DatasetReference",
 									"parameters": {
-										"FileName": "singularityexport_7a592796-4ce7-4c76-808b-a3059aaf0244.csv",
+										"FileName": {
+											"value": "@activity('Get Metadata2').output.itemName",
+											"type": "Expression"
+										},
 										"FolderName": {
-											"value": "@concat('exportcontainer/singularityexport/', activity('Get Metadata1').output.itemName)",
+											"value": "@variables('FolderName')",
 											"type": "Expression"
 										}
 									}
@@ -154,6 +177,11 @@
 				}
 			}
 		],
+		"variables": {
+			"FolderName": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
