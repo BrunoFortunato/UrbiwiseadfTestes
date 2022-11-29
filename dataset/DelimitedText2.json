@@ -1,0 +1,120 @@
+{
+	"name": "DelimitedText2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azure_Blob_CostManagement",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "singularityexport_2a1e25da-136e-4b95-a21c-d8eef1dd57a4.csv",
+				"container": "exportcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "{"
+		},
+		"schema": [
+			{
+				"name": "SubscriptionGuid",
+				"type": "String"
+			},
+			{
+				"name": "ResourceGroup",
+				"type": "String"
+			},
+			{
+				"name": "ResourceLocation",
+				"type": "String"
+			},
+			{
+				"name": "UsageDateTime",
+				"type": "String"
+			},
+			{
+				"name": "MeterCategory",
+				"type": "String"
+			},
+			{
+				"name": "MeterSubcategory",
+				"type": "String"
+			},
+			{
+				"name": "MeterId",
+				"type": "String"
+			},
+			{
+				"name": "MeterName",
+				"type": "String"
+			},
+			{
+				"name": "MeterRegion",
+				"type": "String"
+			},
+			{
+				"name": "UsageQuantity",
+				"type": "String"
+			},
+			{
+				"name": "ResourceRate",
+				"type": "String"
+			},
+			{
+				"name": "PreTaxCost",
+				"type": "String"
+			},
+			{
+				"name": "ConsumedService",
+				"type": "String"
+			},
+			{
+				"name": "ResourceType",
+				"type": "String"
+			},
+			{
+				"name": "InstanceId",
+				"type": "String"
+			},
+			{
+				"name": "Tags",
+				"type": "String"
+			},
+			{
+				"name": "OfferId",
+				"type": "String"
+			},
+			{
+				"name": "AdditionalInfo",
+				"type": "String"
+			},
+			{
+				"name": "ServiceInfo1",
+				"type": "String"
+			},
+			{
+				"name": "ServiceInfo2",
+				"type": "String"
+			},
+			{
+				"name": "ServiceName",
+				"type": "String"
+			},
+			{
+				"name": "ServiceTier",
+				"type": "String"
+			},
+			{
+				"name": "Currency",
+				"type": "String"
+			},
+			{
+				"name": "UnitOfMeasure",
+				"type": "String"
+			}
+		]
+	}
+}
