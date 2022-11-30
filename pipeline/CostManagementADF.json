@@ -159,7 +159,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderName": {
-											"value": "@variables('FolderName')",
+											"value": "@concat('exportcontainer/singularityexport/', item().name)",
 											"type": "Expression"
 										}
 									}
