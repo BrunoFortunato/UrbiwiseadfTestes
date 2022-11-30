@@ -82,7 +82,7 @@
 						"referenceName": "CostManagementCSV",
 						"type": "DatasetReference",
 						"parameters": {
-							"FolderName": "SingularityExportMonth/SingulatityMonth"
+							"FolderName": "SingularityExportMonth"
 						}
 					},
 					"fieldList": [
