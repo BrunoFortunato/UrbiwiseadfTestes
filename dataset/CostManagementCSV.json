@@ -5,11 +5,17 @@
 			"referenceName": "Azure_Blob_CostManagement",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FolderName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"folderPath": "dataset().FolderName",
 				"container": "monthexportcontainer"
 			},
 			"columnDelimiter": ",",
