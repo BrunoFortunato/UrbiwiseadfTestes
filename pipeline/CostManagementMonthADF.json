@@ -64,7 +64,13 @@
 							"typeProperties": {
 								"dataset": {
 									"referenceName": "CostManagementCSV",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderName": {
+											"value": "@concat('SingularityExportMonth/',item().name)",
+											"type": "Expression"
+										}
+									}
 								},
 								"fieldList": [
 									"childItems"
@@ -82,6 +88,14 @@
 				}
 			}
 		],
+		"variables": {
+			"FolderPath": {
+				"type": "String"
+			},
+			"FullPath": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
