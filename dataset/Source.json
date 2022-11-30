@@ -1,0 +1,24 @@
+{
+	"name": "Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azure_Blob_CostManagement",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "SingulatityMonth_8d300086-4b91-4d07-bf43-bb38d249898f.csv",
+				"folderPath": "SingularityExportMonth/SingulatityMonth/20221013-20221112",
+				"container": "monthexportcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\"",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
