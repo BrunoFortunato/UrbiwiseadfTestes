@@ -17,11 +17,8 @@
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().Schema",
-				"type": "Expression"
-			},
-			"table": "dataset().TableName"
+			"schema": "dbo",
+			"table": "CostManagement_Month"
 		}
 	}
 }
