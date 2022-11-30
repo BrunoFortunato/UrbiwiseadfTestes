@@ -19,7 +19,8 @@
 				"container": "monthexportcontainer"
 			},
 			"columnDelimiter": ",",
-			"escapeChar": "\\",
+			"escapeChar": "\"",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
