@@ -18,12 +18,19 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "@dataset().FileName",
-				"folderPath": "@dataset().FolderName",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderName",
+					"type": "Expression"
+				},
 				"container": "exportcontainer"
 			},
 			"columnDelimiter": ",",
-			"escapeChar": "\\",
+			"escapeChar": "\"",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": []
