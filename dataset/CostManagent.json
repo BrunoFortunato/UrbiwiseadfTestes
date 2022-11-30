@@ -5,20 +5,12 @@
 			"referenceName": "ADFDatabase",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"TableName": {
-				"type": "string"
-			},
-			"Schema": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "SqlServerTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "@dataset().TableSchema",
-			"table": "@dataset().TableName"
+			"schema": "dbo",
+			"table": "STG_CostManagement"
 		}
 	}
 }
