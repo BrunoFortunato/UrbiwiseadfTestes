@@ -24,6 +24,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -48,11 +49,54 @@
 						"value": "@activity('Get Metadata1').output.childItems",
 						"type": "Expression"
 					},
+					"isSequential": true,
 					"activities": [
+						{
+							"name": "Get Metadata2",
+							"type": "GetMetadata",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "CostManagementCSV",
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderName": {
+											"value": "@concat('ADFExportMonth/',item().name)",
+											"type": "Expression"
+										}
+									}
+								},
+								"fieldList": [
+									"childItems"
+								],
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							}
+						},
 						{
 							"name": "Copy data1",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "Get Metadata2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.12:00:00",
 								"retry": 0,
@@ -67,6 +111,10 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
+										"wildcardFolderPath": {
+											"value": "@concat(concat('ADFExportMonth/',item().name),'/*')",
+											"type": "Expression"
+										},
 										"wildcardFileName": "*",
 										"enablePartitionDiscovery": false
 									},
@@ -95,7 +143,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderName": {
-											"value": "@concat('SingularityExportMonth/SingulatityMonth',item().name)",
+											"value": "@concat('ADFExportMonth/',item().name)",
 											"type": "Expression"
 										}
 									}
@@ -106,7 +154,8 @@
 									"referenceName": "CostManagent",
 									"type": "DatasetReference",
 									"parameters": {
-										"TableName": "CostManagement_Month"
+										"TableName": "CostManagement_Month",
+										"Schema": "dbo"
 									}
 								}
 							]
