@@ -1,0 +1,146 @@
+{
+	"name": "UsageDetail",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azure_Blob_CostManagement",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "UsageDetail.json",
+				"container": "urbiwiseadf"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"nextLink": {
+					"type": "string"
+				},
+				"value": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"kind": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"name": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string"
+							},
+							"tags": {
+								"type": "null"
+							},
+							"properties": {
+								"type": "object",
+								"properties": {
+									"billingPeriodStartDate": {
+										"type": "string"
+									},
+									"billingPeriodEndDate": {
+										"type": "string"
+									},
+									"billingProfileId": {
+										"type": "string"
+									},
+									"billingProfileName": {
+										"type": "string"
+									},
+									"subscriptionId": {
+										"type": "string"
+									},
+									"subscriptionName": {
+										"type": "string"
+									},
+									"date": {
+										"type": "string"
+									},
+									"partNumber": {
+										"type": "string"
+									},
+									"quantity": {
+										"type": "integer"
+									},
+									"effectivePrice": {
+										"type": "number"
+									},
+									"cost": {
+										"type": "number"
+									},
+									"unitPrice": {
+										"type": "integer"
+									},
+									"billingCurrency": {
+										"type": "string"
+									},
+									"resourceLocation": {
+										"type": "string"
+									},
+									"consumedService": {
+										"type": "string"
+									},
+									"resourceId": {
+										"type": "string"
+									},
+									"resourceName": {
+										"type": "string"
+									},
+									"additionalInfo": {
+										"type": "string"
+									},
+									"resourceGroup": {
+										"type": "string"
+									},
+									"offerId": {
+										"type": "string"
+									},
+									"isAzureCreditEligible": {
+										"type": "boolean"
+									},
+									"publisherName": {
+										"type": "string"
+									},
+									"publisherType": {
+										"type": "string"
+									},
+									"chargeType": {
+										"type": "string"
+									},
+									"frequency": {
+										"type": "string"
+									},
+									"meterDetails": {
+										"type": "object",
+										"properties": {
+											"meterName": {
+												"type": "string"
+											},
+											"meterCategory": {
+												"type": "string"
+											},
+											"meterSubCategory": {
+												"type": "string"
+											},
+											"unitOfMeasure": {
+												"type": "string"
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

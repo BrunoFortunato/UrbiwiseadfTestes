@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata2",
-				"type": "GetMetadata",
+				"name": "Copy data1",
+				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,24 +15,362 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "CostManagementCSV",
-						"type": "DatasetReference",
-						"parameters": {
-							"FolderName": "SingularityExportMonth/"
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
 						}
 					},
-					"fieldList": [
-						"childItems"
-					],
-					"storeSettings": {
-						"type": "AzureBlobStorageReadSettings",
-						"enablePartitionDiscovery": false
+					"sink": {
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
 					},
-					"formatSettings": {
-						"type": "DelimitedTextReadSettings"
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['nextLink']"
+								},
+								"sink": {
+									"name": "nextLink",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['kind']"
+								},
+								"sink": {
+									"name": "kind",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['id']"
+								},
+								"sink": {
+									"name": "id",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['name']"
+								},
+								"sink": {
+									"name": "name",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['type']"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['tags']"
+								},
+								"sink": {
+									"name": "tags",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['billingPeriodStartDate']"
+								},
+								"sink": {
+									"name": "billingPeriodStartDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['billingPeriodEndDate']"
+								},
+								"sink": {
+									"name": "billingPeriodEndDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['billingProfileId']"
+								},
+								"sink": {
+									"name": "billingProfileId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['billingProfileName']"
+								},
+								"sink": {
+									"name": "billingProfileName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['subscriptionId']"
+								},
+								"sink": {
+									"name": "subscriptionId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['subscriptionName']"
+								},
+								"sink": {
+									"name": "subscriptionName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['date']"
+								},
+								"sink": {
+									"name": "date",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['partNumber']"
+								},
+								"sink": {
+									"name": "partNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['quantity']"
+								},
+								"sink": {
+									"name": "quantity",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['effectivePrice']"
+								},
+								"sink": {
+									"name": "effectivePrice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['cost']"
+								},
+								"sink": {
+									"name": "cost",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['unitPrice']"
+								},
+								"sink": {
+									"name": "unitPrice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['billingCurrency']"
+								},
+								"sink": {
+									"name": "billingCurrency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['resourceLocation']"
+								},
+								"sink": {
+									"name": "resourceLocation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['consumedService']"
+								},
+								"sink": {
+									"name": "consumedService",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['resourceId']"
+								},
+								"sink": {
+									"name": "resourceId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['resourceName']"
+								},
+								"sink": {
+									"name": "resourceName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['additionalInfo']"
+								},
+								"sink": {
+									"name": "additionalInfo",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['resourceGroup']"
+								},
+								"sink": {
+									"name": "resourceGroup",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['offerId']"
+								},
+								"sink": {
+									"name": "offerId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['isAzureCreditEligible']"
+								},
+								"sink": {
+									"name": "isAzureCreditEligible",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['publisherName']"
+								},
+								"sink": {
+									"name": "publisherName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['publisherType']"
+								},
+								"sink": {
+									"name": "publisherType",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['chargeType']"
+								},
+								"sink": {
+									"name": "chargeType",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['frequency']"
+								},
+								"sink": {
+									"name": "frequency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['meterDetails']['meterName']"
+								},
+								"sink": {
+									"name": "meterName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['meterDetails']['meterCategory']"
+								},
+								"sink": {
+									"name": "meterCategory",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['meterDetails']['meterSubCategory']"
+								},
+								"sink": {
+									"name": "meterSubCategory",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['meterDetails']['unitOfMeasure']"
+								},
+								"sink": {
+									"name": "unitOfMeasure",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": "$['value']"
 					}
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "UsageDetail",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CostManagent",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "UsageDetails",
+							"Schema": "dbo"
+						}
+					}
+				]
 			}
 		],
 		"annotations": []
