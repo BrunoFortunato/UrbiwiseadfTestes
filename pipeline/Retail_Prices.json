@@ -1,0 +1,297 @@
+{
+	"name": "Retail_Prices",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['BillingCurrency']"
+								},
+								"sink": {
+									"name": "BillingCurrency",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['CustomerEntityId']"
+								},
+								"sink": {
+									"name": "CustomerEntityId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['CustomerEntityType']"
+								},
+								"sink": {
+									"name": "CustomerEntityType",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['currencyCode']"
+								},
+								"sink": {
+									"name": "currencyCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['tierMinimumUnits']"
+								},
+								"sink": {
+									"name": "tierMinimumUnits",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['retailPrice']"
+								},
+								"sink": {
+									"name": "retailPrice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['unitPrice']"
+								},
+								"sink": {
+									"name": "unitPrice",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['armRegionName']"
+								},
+								"sink": {
+									"name": "armRegionName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['location']"
+								},
+								"sink": {
+									"name": "location",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['effectiveStartDate']"
+								},
+								"sink": {
+									"name": "effectiveStartDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['meterId']"
+								},
+								"sink": {
+									"name": "meterId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['meterName']"
+								},
+								"sink": {
+									"name": "meterName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['productId']"
+								},
+								"sink": {
+									"name": "productId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['skuId']"
+								},
+								"sink": {
+									"name": "skuId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['availabilityId']"
+								},
+								"sink": {
+									"name": "availabilityId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['productName']"
+								},
+								"sink": {
+									"name": "productName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['skuName']"
+								},
+								"sink": {
+									"name": "skuName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['serviceName']"
+								},
+								"sink": {
+									"name": "serviceName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['serviceId']"
+								},
+								"sink": {
+									"name": "serviceId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['serviceFamily']"
+								},
+								"sink": {
+									"name": "serviceFamily",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['unitOfMeasure']"
+								},
+								"sink": {
+									"name": "unitOfMeasure",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['type']"
+								},
+								"sink": {
+									"name": "type",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['isPrimaryMeterRegion']"
+								},
+								"sink": {
+									"name": "isPrimaryMeterRegion",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "['armSkuName']"
+								},
+								"sink": {
+									"name": "armSkuName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['NextPageLink']"
+								},
+								"sink": {
+									"name": "NextPageLink",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Count']"
+								},
+								"sink": {
+									"name": "Count",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": "$['Items']"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "RetailPrices",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CostManagent",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "Retail_Prices",
+							"Schema": "dbo"
+						}
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
