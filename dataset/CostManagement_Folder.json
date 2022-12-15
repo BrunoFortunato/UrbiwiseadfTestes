@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "exportcontainer/singularityexport",
-				"container": "exportcontainer"
+				"container": "urbiwiseadf"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
