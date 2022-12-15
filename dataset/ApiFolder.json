@@ -1,0 +1,746 @@
+{
+	"name": "ApiFolder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Azure_Blob_CostManagement",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Usage_Detail.json",
+				"container": "urbiwiseadf"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"status": {
+					"type": "string"
+				},
+				"createdDateTime": {
+					"type": "string"
+				},
+				"lastUpdatedDateTime": {
+					"type": "string"
+				},
+				"analyzeResult": {
+					"type": "object",
+					"properties": {
+						"apiVersion": {
+							"type": "string"
+						},
+						"modelId": {
+							"type": "string"
+						},
+						"stringIndexType": {
+							"type": "string"
+						},
+						"content": {
+							"type": "string"
+						},
+						"pages": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"pageNumber": {
+										"type": "integer"
+									},
+									"angle": {
+										"type": "integer"
+									},
+									"width": {
+										"type": "number"
+									},
+									"height": {
+										"type": "number"
+									},
+									"unit": {
+										"type": "string"
+									},
+									"words": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"content": {
+													"type": "string"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "number"
+													}
+												},
+												"confidence": {
+													"type": "integer"
+												},
+												"span": {
+													"type": "object",
+													"properties": {
+														"offset": {
+															"type": "integer"
+														},
+														"length": {
+															"type": "integer"
+														}
+													}
+												}
+											}
+										}
+									},
+									"selectionMarks": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"state": {
+													"type": "string"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "number"
+													}
+												},
+												"confidence": {
+													"type": "number"
+												},
+												"span": {
+													"type": "object",
+													"properties": {
+														"offset": {
+															"type": "integer"
+														},
+														"length": {
+															"type": "integer"
+														}
+													}
+												}
+											}
+										}
+									},
+									"lines": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"content": {
+													"type": "string"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "number"
+													}
+												},
+												"spans": {
+													"type": "array",
+													"items": {
+														"type": "object",
+														"properties": {
+															"offset": {
+																"type": "integer"
+															},
+															"length": {
+																"type": "integer"
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"tables": {
+							"type": "array"
+						},
+						"styles": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"isHandwritten": {
+										"type": "boolean"
+									},
+									"confidence": {
+										"type": "integer"
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"documents": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"docType": {
+										"type": "string"
+									},
+									"boundingRegions": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"pageNumber": {
+													"type": "integer"
+												},
+												"boundingBox": {
+													"type": "array",
+													"items": {
+														"type": "integer"
+													}
+												}
+											}
+										}
+									},
+									"fields": {
+										"type": "object",
+										"properties": {
+											"ip-cd_distrito": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"ip-cd_concelho": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"ip-cd_freguesia": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc-rua": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc-n_lote": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc-lugar": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc-cod_postal": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											},
+											"loc-localidade": {
+												"type": "object",
+												"properties": {
+													"type": {
+														"type": "string"
+													},
+													"valueString": {
+														"type": "string"
+													},
+													"content": {
+														"type": "string"
+													},
+													"boundingRegions": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"pageNumber": {
+																	"type": "integer"
+																},
+																"boundingBox": {
+																	"type": "array",
+																	"items": {
+																		"type": "number"
+																	}
+																}
+															}
+														}
+													},
+													"confidence": {
+														"type": "number"
+													},
+													"spans": {
+														"type": "array",
+														"items": {
+															"type": "object",
+															"properties": {
+																"offset": {
+																	"type": "integer"
+																},
+																"length": {
+																	"type": "integer"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"confidence": {
+										"type": "number"
+									},
+									"spans": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"offset": {
+													"type": "integer"
+												},
+												"length": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"country_code": {
+					"type": "string"
+				},
+				"party_id": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"publish": {
+					"type": "boolean"
+				},
+				"address": {
+					"type": "string"
+				},
+				"city": {
+					"type": "string"
+				},
+				"country": {
+					"type": "string"
+				},
+				"postal_code": {
+					"type": "string"
+				},
+				"coordinates": {
+					"type": "object",
+					"properties": {
+						"latitude": {
+							"type": "string"
+						},
+						"longitude": {
+							"type": "string"
+						}
+					}
+				},
+				"parking_type": {
+					"type": "string"
+				},
+				"evses": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"uid": {
+								"type": "string"
+							},
+							"evse_id": {
+								"type": "string"
+							},
+							"status": {
+								"type": "string"
+							},
+							"connectors": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"id": {
+											"type": "string"
+										},
+										"standard": {
+											"type": "string"
+										},
+										"format": {
+											"type": "string"
+										},
+										"power_type": {
+											"type": "string"
+										},
+										"max_voltage": {
+											"type": "integer"
+										},
+										"max_amperage": {
+											"type": "integer"
+										},
+										"max_electric_power": {
+											"type": "integer"
+										},
+										"last_updated": {
+											"type": "string"
+										}
+									}
+								}
+							},
+							"last_updated": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"time_zone": {
+					"type": "string"
+				},
+				"mobie_voltage_level": {
+					"type": "string"
+				},
+				"mobie_mobi_charger": {
+					"type": "boolean"
+				},
+				"last_updated": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
