@@ -79,6 +79,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -171,6 +172,9 @@
 			"FullPath": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "CostManagementReport"
 		},
 		"annotations": []
 	}

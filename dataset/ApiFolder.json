@@ -5,12 +5,20 @@
 			"referenceName": "Azure_Blob_CostManagement",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Pathfile": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Usage_Detail.json",
+				"fileName": {
+					"value": "dataset().Pathfile",
+					"type": "Expression"
+				},
 				"container": "urbiwiseadf"
 			}
 		},

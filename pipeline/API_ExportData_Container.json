@@ -1,11 +1,18 @@
 {
-	"name": "pipeline1",
+	"name": "API_ExportData_Container",
 	"properties": {
 		"activities": [
 			{
 				"name": "GetBearerToken",
 				"type": "WebActivity",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "DeleteUsageDetails",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -44,7 +51,7 @@
 				}
 			},
 			{
-				"name": "Export_to_Container",
+				"name": "UsageDetailExport",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -101,12 +108,103 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "DeleteUsageDetails",
+				"type": "Delete",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "UsageDetail",
+						"type": "DatasetReference"
+					},
+					"logStorageSettings": {
+						"linkedServiceName": {
+							"referenceName": "Azure_Blob_CostManagement",
+							"type": "LinkedServiceReference"
+						},
+						"path": "urbiwiseadf"
+					},
+					"enableLogging": true,
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					}
+				}
+			},
+			{
+				"name": "RetailPricesExport",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "UsageDetailExport",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"additionalHeaders": {
+							"Authorization": "@concat('Bearer ',variables('Token'))"
+						},
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "RestResource2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ApiFolder",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"variables": {
 			"Token": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "CostManagementReport"
 		},
 		"annotations": []
 	}

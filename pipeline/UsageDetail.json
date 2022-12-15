@@ -29,8 +29,7 @@
 					"sink": {
 						"type": "SqlServerSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"tableOption": "autoCreate"
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -47,7 +46,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['kind']"
+									"path": "['kind']"
 								},
 								"sink": {
 									"name": "kind",
@@ -56,7 +55,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['id']"
+									"path": "['id']"
 								},
 								"sink": {
 									"name": "id",
@@ -65,7 +64,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['name']"
+									"path": "['name']"
 								},
 								"sink": {
 									"name": "name",
@@ -74,7 +73,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['type']"
+									"path": "['type']"
 								},
 								"sink": {
 									"name": "type",
@@ -83,7 +82,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['tags']"
+									"path": "['tags']"
 								},
 								"sink": {
 									"name": "tags",
@@ -92,7 +91,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['billingPeriodStartDate']"
+									"path": "['properties']['billingPeriodStartDate']"
 								},
 								"sink": {
 									"name": "billingPeriodStartDate",
@@ -101,7 +100,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['billingPeriodEndDate']"
+									"path": "['properties']['billingPeriodEndDate']"
 								},
 								"sink": {
 									"name": "billingPeriodEndDate",
@@ -110,7 +109,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['billingProfileId']"
+									"path": "['properties']['billingProfileId']"
 								},
 								"sink": {
 									"name": "billingProfileId",
@@ -119,7 +118,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['billingProfileName']"
+									"path": "['properties']['billingProfileName']"
 								},
 								"sink": {
 									"name": "billingProfileName",
@@ -128,7 +127,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['subscriptionId']"
+									"path": "['properties']['subscriptionId']"
 								},
 								"sink": {
 									"name": "subscriptionId",
@@ -137,7 +136,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['subscriptionName']"
+									"path": "['properties']['subscriptionName']"
 								},
 								"sink": {
 									"name": "subscriptionName",
@@ -146,7 +145,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['date']"
+									"path": "['properties']['date']"
 								},
 								"sink": {
 									"name": "date",
@@ -155,7 +154,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['partNumber']"
+									"path": "['properties']['partNumber']"
 								},
 								"sink": {
 									"name": "partNumber",
@@ -164,7 +163,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['quantity']"
+									"path": "['properties']['quantity']"
 								},
 								"sink": {
 									"name": "quantity",
@@ -173,7 +172,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['effectivePrice']"
+									"path": "['properties']['effectivePrice']"
 								},
 								"sink": {
 									"name": "effectivePrice",
@@ -182,7 +181,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['cost']"
+									"path": "['properties']['cost']"
 								},
 								"sink": {
 									"name": "cost",
@@ -191,7 +190,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['unitPrice']"
+									"path": "['properties']['unitPrice']"
 								},
 								"sink": {
 									"name": "unitPrice",
@@ -200,7 +199,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['billingCurrency']"
+									"path": "['properties']['billingCurrency']"
 								},
 								"sink": {
 									"name": "billingCurrency",
@@ -209,7 +208,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['resourceLocation']"
+									"path": "['properties']['resourceLocation']"
 								},
 								"sink": {
 									"name": "resourceLocation",
@@ -218,7 +217,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['consumedService']"
+									"path": "['properties']['consumedService']"
 								},
 								"sink": {
 									"name": "consumedService",
@@ -227,7 +226,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['resourceId']"
+									"path": "['properties']['resourceId']"
 								},
 								"sink": {
 									"name": "resourceId",
@@ -236,7 +235,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['resourceName']"
+									"path": "['properties']['resourceName']"
 								},
 								"sink": {
 									"name": "resourceName",
@@ -245,7 +244,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['additionalInfo']"
+									"path": "['properties']['additionalInfo']"
 								},
 								"sink": {
 									"name": "additionalInfo",
@@ -254,7 +253,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['resourceGroup']"
+									"path": "['properties']['resourceGroup']"
 								},
 								"sink": {
 									"name": "resourceGroup",
@@ -263,7 +262,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['offerId']"
+									"path": "['properties']['offerId']"
 								},
 								"sink": {
 									"name": "offerId",
@@ -272,7 +271,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['isAzureCreditEligible']"
+									"path": "['properties']['isAzureCreditEligible']"
 								},
 								"sink": {
 									"name": "isAzureCreditEligible",
@@ -281,7 +280,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['publisherName']"
+									"path": "['properties']['publisherName']"
 								},
 								"sink": {
 									"name": "publisherName",
@@ -290,7 +289,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['publisherType']"
+									"path": "['properties']['publisherType']"
 								},
 								"sink": {
 									"name": "publisherType",
@@ -299,7 +298,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['chargeType']"
+									"path": "['properties']['chargeType']"
 								},
 								"sink": {
 									"name": "chargeType",
@@ -308,7 +307,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['frequency']"
+									"path": "['properties']['frequency']"
 								},
 								"sink": {
 									"name": "frequency",
@@ -317,7 +316,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['meterDetails']['meterName']"
+									"path": "['properties']['meterDetails']['meterName']"
 								},
 								"sink": {
 									"name": "meterName",
@@ -326,7 +325,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['meterDetails']['meterCategory']"
+									"path": "['properties']['meterDetails']['meterCategory']"
 								},
 								"sink": {
 									"name": "meterCategory",
@@ -335,7 +334,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['meterDetails']['meterSubCategory']"
+									"path": "['properties']['meterDetails']['meterSubCategory']"
 								},
 								"sink": {
 									"name": "meterSubCategory",
@@ -344,7 +343,7 @@
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['meterDetails']['unitOfMeasure']"
+									"path": "['properties']['meterDetails']['unitOfMeasure']"
 								},
 								"sink": {
 									"name": "unitOfMeasure",
@@ -352,12 +351,13 @@
 								}
 							}
 						],
-						"collectionReference": "$['value']"
+						"collectionReference": "$['value']",
+						"mapComplexValuesToString": true
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "UsageDetail",
+						"referenceName": "ApiFolder",
 						"type": "DatasetReference"
 					}
 				],
@@ -373,6 +373,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "CostManagementReport"
+		},
 		"annotations": []
 	}
 }

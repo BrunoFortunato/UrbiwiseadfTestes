@@ -292,6 +292,9 @@
 				]
 			}
 		],
+		"folder": {
+			"name": "CostManagementReport"
+		},
 		"annotations": []
 	}
 }
