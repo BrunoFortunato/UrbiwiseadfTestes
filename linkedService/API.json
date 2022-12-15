@@ -1,0 +1,12 @@
+{
+	"name": "API",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://oauth.pstmn.io/v1/browser-callback",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
