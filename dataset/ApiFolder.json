@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "dataset().Pathfile",
+					"value": "Usage_Detail.json",
 					"type": "Expression"
 				},
 				"container": "urbiwiseadf"
