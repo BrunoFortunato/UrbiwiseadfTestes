@@ -1,0 +1,15 @@
+{
+	"name": "RestResource3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "API",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "https://management.azure.com/subscriptions/f427ed02-c8b9-4458-ae7c-a43df7494399/providers/Microsoft.Consumption/reservationRecommendations?api-version=2021-10-01"
+		},
+		"schema": []
+	}
+}
