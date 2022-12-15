@@ -105,7 +105,10 @@
 				"outputs": [
 					{
 						"referenceName": "ApiFolder",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Pathfile": "Usage_Detail.json"
+						}
 					}
 				]
 			},
@@ -193,7 +196,69 @@
 				"outputs": [
 					{
 						"referenceName": "ApiFolder",
+						"type": "DatasetReference",
+						"parameters": {
+							"Pathfile": "Retail_Prices.json"
+						}
+					}
+				]
+			},
+			{
+				"name": "ReservationRecomendation_Export",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "RetailPricesExport",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"additionalHeaders": {
+							"Authorization": "@concat('Bearer ',variables('Token'))"
+						},
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "RestResource3",
 						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ApiFolder",
+						"type": "DatasetReference",
+						"parameters": {
+							"Pathfile": "Reservation_Recomended.json"
+						}
 					}
 				]
 			}
