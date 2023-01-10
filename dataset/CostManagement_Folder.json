@@ -15,12 +15,15 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "@dataset().Pathfile",
+				"fileName": {
+					"value": "@dataset().PathFile",
+					"type": "Expression"
+				},
 				"container": "urbiwiseadf"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
-			"firstRowAsHeader": false,
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
