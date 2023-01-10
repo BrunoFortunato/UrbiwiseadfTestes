@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy_to_Staging",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -16,20 +16,21 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "JsonReadSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
 						"type": "SqlServerSink",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -37,328 +38,679 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['nextLink']"
+									"name": "InvoiceSectionName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "nextLink",
-									"type": "String"
+									"name": "InvoiceSectionName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['kind']"
+									"name": "AccountName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "kind",
-									"type": "String"
+									"name": "AccountName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['id']"
+									"name": "AccountOwnerId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "id",
-									"type": "String"
+									"name": "AccountOwnerId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['name']"
+									"name": "SubscriptionId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "name",
-									"type": "String"
+									"name": "SubscriptionId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['type']"
+									"name": "SubscriptionName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "type",
-									"type": "String"
+									"name": "SubscriptionName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['tags']"
+									"name": "ResourceGroup",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "tags",
-									"type": "String"
+									"name": "ResourceGroup",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['billingPeriodStartDate']"
+									"name": "ResourceLocation",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "billingPeriodStartDate",
-									"type": "String"
+									"name": "ResourceLocation",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['billingPeriodEndDate']"
+									"name": "Date",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "billingPeriodEndDate",
-									"type": "String"
+									"name": "Date",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['billingProfileId']"
+									"name": "ProductName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "billingProfileId",
-									"type": "String"
+									"name": "ProductName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['billingProfileName']"
+									"name": "MeterCategory",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "billingProfileName",
-									"type": "String"
+									"name": "MeterCategory",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['subscriptionId']"
+									"name": "MeterSubCategory",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "subscriptionId",
-									"type": "String"
+									"name": "MeterSubCategory",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['subscriptionName']"
+									"name": "MeterId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "subscriptionName",
-									"type": "String"
+									"name": "MeterId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['date']"
+									"name": "MeterName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "date",
-									"type": "String"
+									"name": "MeterName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['partNumber']"
+									"name": "MeterRegion",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "partNumber",
-									"type": "String"
+									"name": "MeterRegion",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['quantity']"
+									"name": "UnitOfMeasure",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "quantity",
-									"type": "String"
+									"name": "UnitOfMeasure",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['effectivePrice']"
+									"name": "Quantity",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "effectivePrice",
-									"type": "String"
+									"name": "Quantity",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['cost']"
+									"name": "EffectivePrice",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "cost",
-									"type": "String"
+									"name": "EffectivePrice",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['unitPrice']"
+									"name": "CostInBillingCurrency",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "unitPrice",
-									"type": "String"
+									"name": "CostInBillingCurrency",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['billingCurrency']"
+									"name": "CostCenter",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "billingCurrency",
-									"type": "String"
+									"name": "CostCenter",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['resourceLocation']"
+									"name": "ConsumedService",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "resourceLocation",
-									"type": "String"
+									"name": "ConsumedService",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['consumedService']"
+									"name": "ResourceId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "consumedService",
-									"type": "String"
+									"name": "ResourceId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['resourceId']"
+									"name": "Tags",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "resourceId",
-									"type": "String"
+									"name": "Tags",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['resourceName']"
+									"name": "OfferId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "resourceName",
-									"type": "String"
+									"name": "OfferId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['additionalInfo']"
+									"name": "AdditionalInfo",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "additionalInfo",
-									"type": "String"
+									"name": "AdditionalInfo",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['resourceGroup']"
+									"name": "ServiceInfo1",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "resourceGroup",
-									"type": "String"
+									"name": "ServiceInfo1",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['offerId']"
+									"name": "ServiceInfo2",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "offerId",
-									"type": "String"
+									"name": "ServiceInfo2",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['isAzureCreditEligible']"
+									"name": "ResourceName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "isAzureCreditEligible",
-									"type": "String"
+									"name": "ResourceName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['publisherName']"
+									"name": "ReservationId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "publisherName",
-									"type": "String"
+									"name": "ReservationId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['publisherType']"
+									"name": "ReservationName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "publisherType",
-									"type": "String"
+									"name": "ReservationName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['chargeType']"
+									"name": "UnitPrice",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "chargeType",
-									"type": "String"
+									"name": "UnitPrice",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['frequency']"
+									"name": "ProductOrderId",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "frequency",
-									"type": "String"
+									"name": "ProductOrderId",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['meterDetails']['meterName']"
+									"name": "ProductOrderName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "meterName",
-									"type": "String"
+									"name": "ProductOrderName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['meterDetails']['meterCategory']"
+									"name": "Term",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "meterCategory",
-									"type": "String"
+									"name": "Term",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['meterDetails']['meterSubCategory']"
+									"name": "PublisherType",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "meterSubCategory",
-									"type": "String"
+									"name": "PublisherType",
+									"type": "String",
+									"physicalType": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "['properties']['meterDetails']['unitOfMeasure']"
+									"name": "PublisherName",
+									"type": "String",
+									"physicalType": "String"
 								},
 								"sink": {
-									"name": "unitOfMeasure",
-									"type": "String"
+									"name": "PublisherName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ChargeType",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ChargeType",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Frequency",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Frequency",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PricingModel",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PricingModel",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "AvailabilityZone",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "AvailabilityZone",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingAccountId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingAccountId",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingAccountName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingAccountName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingCurrencyCode",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingCurrencyCode",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingPeriodStartDate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingPeriodStartDate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingPeriodEndDate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingPeriodEndDate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingProfileId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingProfileId",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingProfileName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingProfileName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "InvoiceSectionId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "InvoiceSectionId",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IsAzureCreditEligible",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IsAzureCreditEligible",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PartNumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PartNumber",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PayGPrice",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PayGPrice",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ServiceFamily",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ServiceFamily",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CostAllocationRuleName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CostAllocationRuleName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "benefitId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "benefitId",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "benefitName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "benefitName",
+									"type": "String",
+									"physicalType": "String"
 								}
 							}
 						],
-						"collectionReference": "$['value']",
-						"mapComplexValuesToString": true
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "ApiFolder",
-						"type": "DatasetReference"
+						"referenceName": "CostManagement_Folder",
+						"type": "DatasetReference",
+						"parameters": {
+							"PathFile": "UsageDetail_Append.csv"
+						}
 					}
 				],
 				"outputs": [
@@ -366,11 +718,38 @@
 						"referenceName": "CostManagent",
 						"type": "DatasetReference",
 						"parameters": {
-							"TableName": "UsageDetails",
+							"TableName": "STAGING_FCT_USAGE_DETAIL",
 							"Schema": "dbo"
 						}
 					}
 				]
+			},
+			{
+				"name": "Insert in FCT",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "Copy_to_Staging",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[Insert_in_FCT]"
+				},
+				"linkedServiceName": {
+					"referenceName": "ADFDatabase",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"folder": {
