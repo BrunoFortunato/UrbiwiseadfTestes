@@ -38,182 +38,205 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['category']"
+									"path": "['properties']['category']"
 								},
 								"sink": {
-									"name": "category"
+									"name": "category",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['impact']"
+									"path": "['properties']['impact']"
 								},
 								"sink": {
-									"name": "impact"
+									"name": "impact",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['impactedField']"
+									"path": "['properties']['impactedField']"
 								},
 								"sink": {
-									"name": "impactedField"
+									"name": "impactedField",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['impactedValue']"
+									"path": "['properties']['impactedValue']"
 								},
 								"sink": {
-									"name": "impactedValue"
+									"name": "impactedValue",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['lastUpdated']"
+									"path": "['properties']['lastUpdated']"
 								},
 								"sink": {
-									"name": "lastUpdated"
+									"name": "lastUpdated",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['recommendationTypeId']"
+									"path": "['properties']['recommendationTypeId']"
 								},
 								"sink": {
-									"name": "recommendationTypeId"
+									"name": "recommendationTypeId",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['shortDescription']['problem']"
+									"path": "['properties']['shortDescription']['problem']"
 								},
 								"sink": {
-									"name": "problem"
+									"name": "problem",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['shortDescription']['solution']"
+									"path": "['properties']['shortDescription']['solution']"
 								},
 								"sink": {
-									"name": "solution"
+									"name": "solution",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['location']"
+									"path": "['properties']['extendedProperties']['location']"
 								},
 								"sink": {
-									"name": "location"
+									"name": "location",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['vmSize']"
+									"path": "['properties']['extendedProperties']['vmSize']"
 								},
 								"sink": {
-									"name": "vmSize"
+									"name": "vmSize",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['targetResourceCount']"
+									"path": "['properties']['extendedProperties']['targetResourceCount']"
 								},
 								"sink": {
-									"name": "targetResourceCount"
+									"name": "targetResourceCount",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['term']"
+									"path": "['properties']['extendedProperties']['term']"
 								},
 								"sink": {
-									"name": "term"
+									"name": "term",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['savingsPercentage']"
+									"path": "['properties']['extendedProperties']['savingsPercentage']"
 								},
 								"sink": {
-									"name": "savingsPercentage"
+									"name": "savingsPercentage",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['reservationType']"
+									"path": "['properties']['extendedProperties']['reservationType']"
 								},
 								"sink": {
-									"name": "reservationType"
+									"name": "reservationType",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['savingsAmount']"
+									"path": "['properties']['extendedProperties']['savingsAmount']"
 								},
 								"sink": {
-									"name": "savingsAmount"
+									"name": "savingsAmount",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['annualSavingsAmount']"
+									"path": "['properties']['extendedProperties']['annualSavingsAmount']"
 								},
 								"sink": {
-									"name": "annualSavingsAmount"
+									"name": "annualSavingsAmount",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['savingsCurrency']"
+									"path": "['properties']['extendedProperties']['savingsCurrency']"
 								},
 								"sink": {
-									"name": "savingsCurrency"
+									"name": "savingsCurrency",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['extendedProperties']['scope']"
+									"path": "['properties']['extendedProperties']['scope']"
 								},
 								"sink": {
-									"name": "scope"
+									"name": "scope",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['properties']['resourceMetadata']['resourceId']"
+									"path": "['properties']['resourceMetadata']['resourceId']"
 								},
 								"sink": {
-									"name": "resourceId"
+									"name": "resourceId",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['id']"
+									"path": "['id']"
 								},
 								"sink": {
-									"name": "id"
+									"name": "id",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['type']"
+									"path": "['type']"
 								},
 								"sink": {
-									"name": "type"
+									"name": "type",
+									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['value'][0]['name']"
+									"path": "['name']"
 								},
 								"sink": {
-									"name": "name"
+									"name": "name",
+									"type": "String"
 								}
 							}
 						],
-						"collectionReference": "$['value']"
+						"collectionReference": "$['value']",
+						"mapComplexValuesToString": true
 					}
 				},
 				"inputs": [
