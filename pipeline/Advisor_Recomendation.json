@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "GetBearerToken",
-				"type": "WebActivity",
+				"name": "Copy data1",
+				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,105 +15,228 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://login.microsoftonline.com/ecb049e8-7bf7-43c9-9927-73dd3cfb1dd2/oauth2/token",
-					"method": "POST",
-					"headers": {
-						"Content-Type": "application/x-www-form-urlencoded"
-					},
-					"body": "client_id=2bccb438-6d8f-4bf7-aaa2-f1b44e05bc73&client_secret=TaL8Q~uVMz5ga9XOGtBbhCev~zRTMjaHNh7vCc6V&grant_type=client_credentials&scope=https://graph.microsoft.com/.default&resource=https://management.azure.com/"
-				}
-			},
-			{
-				"name": "Set variable1",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "GetBearerToken",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "Token",
-					"value": {
-						"value": "@activity('GetBearerToken').output",
-						"type": "Expression"
-					}
-				}
-			},
-			{
-				"name": "Copy_to_Storage",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Set variable1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
 					"source": {
-						"type": "RestSource",
-						"httpRequestTimeout": "00:01:40",
-						"requestInterval": "00.00:00:00.010",
-						"requestMethod": "GET",
-						"additionalHeaders": {
-							"Authorization": {
-								"value": "@concat('Bearer ',variables('Token'))",
-								"type": "Expression"
-							}
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
-						"paginationRules": {
-							"supportRFC5988": "true"
+						"formatSettings": {
+							"type": "JsonReadSettings"
 						}
 					},
 					"sink": {
-						"type": "JsonSink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
-						},
-						"formatSettings": {
-							"type": "JsonWriteSettings"
-						}
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['category']"
+								},
+								"sink": {
+									"name": "category"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['impact']"
+								},
+								"sink": {
+									"name": "impact"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['impactedField']"
+								},
+								"sink": {
+									"name": "impactedField"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['impactedValue']"
+								},
+								"sink": {
+									"name": "impactedValue"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['lastUpdated']"
+								},
+								"sink": {
+									"name": "lastUpdated"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['recommendationTypeId']"
+								},
+								"sink": {
+									"name": "recommendationTypeId"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['shortDescription']['problem']"
+								},
+								"sink": {
+									"name": "problem"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['shortDescription']['solution']"
+								},
+								"sink": {
+									"name": "solution"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['location']"
+								},
+								"sink": {
+									"name": "location"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['vmSize']"
+								},
+								"sink": {
+									"name": "vmSize"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['targetResourceCount']"
+								},
+								"sink": {
+									"name": "targetResourceCount"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['term']"
+								},
+								"sink": {
+									"name": "term"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['savingsPercentage']"
+								},
+								"sink": {
+									"name": "savingsPercentage"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['reservationType']"
+								},
+								"sink": {
+									"name": "reservationType"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['savingsAmount']"
+								},
+								"sink": {
+									"name": "savingsAmount"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['annualSavingsAmount']"
+								},
+								"sink": {
+									"name": "annualSavingsAmount"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['savingsCurrency']"
+								},
+								"sink": {
+									"name": "savingsCurrency"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['extendedProperties']['scope']"
+								},
+								"sink": {
+									"name": "scope"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['properties']['resourceMetadata']['resourceId']"
+								},
+								"sink": {
+									"name": "resourceId"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['id']"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['type']"
+								},
+								"sink": {
+									"name": "type"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value'][0]['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							}
+						],
+						"collectionReference": "$['value']"
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "RestResource4",
+						"referenceName": "CostManagement_Json",
 						"type": "DatasetReference",
 						"parameters": {
-							"URL": "https://management.azure.com/subscriptions/f427ed02-c8b9-4458-ae7c-a43df7494399/providers/Microsoft.Advisor/recommendations?api-version=2020-01-01"
+							"PathFile": "Advisor_Recomendation.json"
 						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ApiFolder",
+						"referenceName": "CostManagent",
 						"type": "DatasetReference",
 						"parameters": {
-							"Pathfile": "Advisor_Recomendation.json"
+							"TableName": "ADVISOR_RECOMENDATION",
+							"Schema": "dbo"
 						}
 					}
 				]
 			}
 		],
-		"variables": {
-			"Token": {
-				"type": "String"
-			}
-		},
 		"folder": {
 			"name": "CostManagementReport"
 		},
