@@ -1,0 +1,122 @@
+{
+	"name": "Advisor_Recomendation",
+	"properties": {
+		"activities": [
+			{
+				"name": "GetBearerToken",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://login.microsoftonline.com/ecb049e8-7bf7-43c9-9927-73dd3cfb1dd2/oauth2/token",
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/x-www-form-urlencoded"
+					},
+					"body": "client_id=2bccb438-6d8f-4bf7-aaa2-f1b44e05bc73&client_secret=TaL8Q~uVMz5ga9XOGtBbhCev~zRTMjaHNh7vCc6V&grant_type=client_credentials&scope=https://graph.microsoft.com/.default&resource=https://management.azure.com/"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "GetBearerToken",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Token",
+					"value": {
+						"value": "@activity('GetBearerToken').output",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Copy_to_Storage",
+				"type": "Copy",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"additionalHeaders": {
+							"Authorization": {
+								"value": "@concat('Bearer ',variables('Token'))",
+								"type": "Expression"
+							}
+						},
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "RestResource4",
+						"type": "DatasetReference",
+						"parameters": {
+							"URL": "https://management.azure.com/subscriptions/f427ed02-c8b9-4458-ae7c-a43df7494399/providers/Microsoft.Advisor/recommendations?api-version=2020-01-01"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ApiFolder",
+						"type": "DatasetReference",
+						"parameters": {
+							"Pathfile": "Advisor_Recomendation.json"
+						}
+					}
+				]
+			}
+		],
+		"variables": {
+			"Token": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "CostManagementReport"
+		},
+		"annotations": []
+	}
+}
