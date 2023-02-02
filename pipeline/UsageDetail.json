@@ -709,7 +709,7 @@
 						"referenceName": "CostManagement_Folder",
 						"type": "DatasetReference",
 						"parameters": {
-							"PathFile": "UsageDetail_Append.csv"
+							"PathFile": "UsageDetail_Append_2.csv"
 						}
 					}
 				],
