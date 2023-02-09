@@ -1,0 +1,19 @@
+{
+	"name": "Bondalti_SapBw",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SapBw",
+		"typeProperties": {
+			"server": "10.240.2.19",
+			"systemNumber": "P01",
+			"clientId": "02",
+			"userName": "SINGULARITY",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4ZGZiYjM5OS0zOGYxLTQ5OWItYmIwMi1iMTczMjc0MGNjNTYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Self-Hosted-Bondalti",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
