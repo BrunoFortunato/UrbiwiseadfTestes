@@ -5,11 +5,11 @@
 		"annotations": [],
 		"type": "SapBw",
 		"typeProperties": {
-			"server": "10.240.2.19",
-			"systemNumber": "01",
+			"server": "10.240.2.15",
+			"systemNumber": "00",
 			"clientId": "100",
 			"userName": "SINGULARITY",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5ZDEyMTcwZC1lYzg0LTQyZjQtYjM2Ni00YjYxODY0YTcyMTAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0NzkwZDM1Yi0wMTYwLTRhYmMtOGJlMy05YjQ2MmM4NjI3NjIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "Self-Hosted-Bondalti",
