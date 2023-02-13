@@ -1,0 +1,47 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapBwSource",
+						"query": {
+							"value": "@concat('SELECT\nNON EMPTY\n  { \n    [0MATERIAL].Members }\n    DIMENSION PROPERTIES\n    [0MATERIAL].[20MATERIAL],\n\t[0MATERIAL].[40MATERIAL]\nON ROWS\nFROM\n  [ZCFPC_M1/TESTE_ZCFPC_M1_50MIG_R15002]\n  SAP VARIABLES\n[0P_FPER] INCLUDING', pipeline().parameters.x,\n'[0P_COCD] INCLUDING', pipeline().parameters.y)",
+							"type": "Expression"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SapBondalti",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"x": {
+				"type": "string",
+				"defaultValue": "[0FISCPER].[K42022012]"
+			},
+			"y": {
+				"type": "string",
+				"defaultValue": "[0COMP_CODE].[7700]"
+			}
+		},
+		"annotations": []
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"name": "SapBondalti",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Bondalti_SapBw",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SapBwCube",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "ZCFPC_M1"
+		}
+	}
+}

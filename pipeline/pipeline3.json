@@ -1,0 +1,401 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapBwSource",
+						"query": "SELECT\nNON  EMPTY\n    {  [006EI54BIT4FPCCW4YJ98CT7E].Members  }\nON  COLUMNS,\nNON  EMPTY\n    {  [006EI54993404Z78VQRUU9IG6].Members  }\nON  ROWS\nFROM\n    [ZCFPC_M1/ZCFPC_M1_50MIG_R15002_PMC]\n    SAP  VARIABLES\n[0P_FPER]  INCLUDING  [0FISCPER].[K42022012]\n[0P_COCD]  INCLUDING  [0COMP_CODE].[7700]"
+					},
+					"sink": {
+						"type": "SqlServerSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "[006EI54993404Z78VQRUU9IG6].[MEMBER_CAPTION]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "1",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCD625GY54N2Y]",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "2",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98D5UI]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "3",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98DIHM]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "4",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98DOT6]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "5",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98E1GA]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "6",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98EE3E]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "7",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98EKEY]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "8",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98EQQI]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "9",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98EX22]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "10",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98F3DM]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "11",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98F9P6]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "12",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98FG0Q]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "13",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98FMCA]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "14",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98FYZE]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "15",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98GHY2]",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "16",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCSBW89XGN4KA]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "17",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98G5AY]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "18",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCSFVEGUPWD0A]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "19",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98GBMI]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "20",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98FSNU]",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "21",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98H78A]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "22",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98GO9M]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "23",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98GUL6]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "24",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98H0WQ]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "25",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[003YQNRAFOY060A4EYUNJUE5X]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "26",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[003YQNRAFOY060A4EYUNJUKHH]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "27",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98HDJU]",
+									"type": "Decimal"
+								},
+								"sink": {
+									"name": "28",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98HJVE]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "29",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98HQ6Y]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "30",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							},
+							{
+								"source": {
+									"name": "[006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98HWII]",
+									"type": "String"
+								},
+								"sink": {
+									"name": "31",
+									"type": "String",
+									"physicalType": "varchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SapBondalti",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CostManagent",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "bondalti",
+							"Schema": "dbo"
+						}
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

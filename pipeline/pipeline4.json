@@ -1,0 +1,34 @@
+{
+	"name": "pipeline4",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SapBwSource",
+						"query": "SELECT\nNON  EMPTY\n    {  [006EI54BIT4FPCCW4YJ98CT7E].[006EI54BIT4FPCCW4YJ98D5UI]  }\nON  COLUMNS,\nNON  EMPTY\n    {  [006EI54993404Z78VQRUU9IG6].Members  }\nON  ROWS\nFROM\n    [ZCFPC_M1/ZCFPC_M1_50MIG_R15002_PMC]\n    SAP  VARIABLES\n[0P_FPER]  INCLUDING  [0FISCPER].[K42022012]\n[0P_COCD]  INCLUDING  [0COMP_CODE].[7700]"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "SapBondalti",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
